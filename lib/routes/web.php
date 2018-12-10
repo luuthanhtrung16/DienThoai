@@ -25,7 +25,10 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::get('home','HomeController@getHome');
 		Route::group(['prefix'=>'category'],function(){
 			Route::get('/','CategoryController@getCate');
-			Route::get('edit','CategoryController@getCateEdit');
+			Route::post('/','CategoryController@postCateAdd');
+			Route::get('edit/{id}','CategoryController@getCateEdit');
+			Route::post('edit/{id}','CategoryController@postCateEdit');
+			Route::get('delete/{id}','CategoryController@getCateDelete');
 		});
 	});
 });

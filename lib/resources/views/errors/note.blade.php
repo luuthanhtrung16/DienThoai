@@ -3,3 +3,13 @@
 		{{Session::get('error')}}
 	</p>
 @endif
+@if(Session::has('success'))
+	<p class="alert alert-success">
+		{{Session::get('success')}}
+	</p>
+@endif
+@if(Session::has('errors'))
+	<p class="alert alert-danger">
+		{{Session::get('errors')}}
+	</p>
+@endif

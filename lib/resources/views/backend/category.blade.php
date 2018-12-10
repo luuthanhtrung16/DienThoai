@@ -15,10 +15,17 @@
 							Thêm danh mục
 						</div>
 						<div class="panel-body">
+							@include('errors.note')
+							<form method="post">
 							<div class="form-group">
 								<label>Tên danh mục:</label>
     							<input type="text" name="name" class="form-control" placeholder="Tên danh mục...">
 							</div>
+							<div class="form-group">
+								<input type="submit" class="form-control btn btn-primary" value="Thêm mới" name="submit">
+							</div>
+							{{csrf_field()}}
+							</form>
 						</div>
 					</div>
 			</div>
@@ -35,55 +42,15 @@
 					                </tr>
 				              	</thead>
 				              	<tbody>
+				              		@foreach($catelist as $cl)
 								<tr>
-									<td>iPhone</td>
+									<td>{{$cl->cate_name}}</td>
 									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
+			                    		<a href="{{asset('admin/admin/category/edit/'.$cl->cate_id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
+			                    		<a href="{{asset('admin/admin/category/delete/'.$cl->cate_id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
 			                  		</td>
 			                  	</tr>
-			                  	<tr>
-									<td>Samsung</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr> 
-			                  	<tr>
-									<td>Nokia</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr> 
-			                  	<tr>
-									<td>HTC</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr>
-			                  	<tr>
-									<td>LG</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr>
-			                  	<tr>
-									<td>Sony</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr>
-			                  	<tr>
-									<td>Motorola</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr> 
+			                  	@endforeach
 				                </tbody>
 				            </table>
 						</div>
