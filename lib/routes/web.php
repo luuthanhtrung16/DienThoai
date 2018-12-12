@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
+Route::get('/', 'FrontEndController@getHome');
+Route::get('detail/{id}/{slug}.html','FrontEndController@getDetail');
+// 
 Route::group(['prefix'=>'admin'],function(){
 	Route::group(['prefix'=>'login','middleware'=>'CheckLogedIn'],function(){
 		Route::get('/','LoginController@getLogin');
