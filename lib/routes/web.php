@@ -30,6 +30,14 @@ Route::group(['prefix'=>'admin'],function(){
 			Route::post('edit/{id}','CategoryController@postCateEdit');
 			Route::get('delete/{id}','CategoryController@getCateDelete');
 		});
+		Route::group(['prefix'=>'product'],function(){
+			Route::get('/','ProductController@getProd');
+			Route::get('add','ProductController@getProdAdd');
+			Route::post('add','ProductController@postProdAdd');
+			Route::get('edit/{id}','ProductController@getProdEdit');
+			Route::post('edit/{id}','ProductController@postProdEdit');
+			Route::get('delete/{id}','ProductController@getProdDelete');
+		});
 	});
 });
 //cái middleware => để kiểm tra xem có login chưa mà vô trang index của admin ấ

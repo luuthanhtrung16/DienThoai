@@ -8,7 +8,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/datepicker3.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
-<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="../../ckeditor/ckeditor.js"></script>
 <script src="js/lumino.glyphs.js"></script>
 </head>
 <body>
@@ -33,7 +33,7 @@
 		<ul class="nav menu">
 			<li role="presentation" class="divider"></li>
 			<li class="active"><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Trang chủ</a></li>
-			<li><a href="{{asset('admin/admin/category')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Sản phẩm</a></li>
+			<li><a href="{{asset('admin/admin/product')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Sản phẩm</a></li>
 			<li><a href="{{asset('admin/admin/category')}}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Danh mục</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
