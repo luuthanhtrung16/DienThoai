@@ -46,9 +46,12 @@
 					</h1>
 				</div>
 				<div id="search" class="col-md-7 col-sm-12 col-xs-12">
-					<input type="text" name="text" value="Nhập từ khóa ...">
+					<form method="get" action="{{asset('search/')}}">
+					<input type="text" name="text" placeholder="Nhập từ khóa ...">
 					<input type="submit" name="submit" value="Tìm Kiếm">
+				</form>	
 				</div>
+
 				<div id="cart" class="col-md-2 col-sm-12 col-xs-12">
 					<a class="display" href="#">Giỏ hàng</a>
 					<a href="#">6</a>				    
@@ -67,7 +70,7 @@
 						<ul>
 							<li class="menu-item">danh mục sản phẩm</li>
 							@foreach($category as $ct)
-							<li class="menu-item"><a href="#" title="">{{$ct->cate_name}}</a></li>
+							<li class="menu-item"><a href="{{asset('category/'.$ct->cate_id.'/'.$ct->cate_slug.'.html')}}" title="">{{$ct->cate_name}}</a></li>
 							@endforeach				
 						</ul>
 						<!-- <a href="#" id="pull">Danh mục</a> -->

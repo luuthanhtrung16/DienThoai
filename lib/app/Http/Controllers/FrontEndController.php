@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Comment;
+
 class FrontEndController extends Controller
 {
     public function getHome(){
@@ -14,7 +16,29 @@ class FrontEndController extends Controller
     	return view('frontend.home',$data);
     }
     public function getDetail($id){
+        $data['comments'] = Comment::where('com_product',$id)->get();
     	$data['item'] = Product::find($id);
     	return view('frontend.details',$data);
+    }
+    public function getCategory($id){
+        $data['catename'] = Category::find($id);
+        $data['danhmuc'] = Product::where('prod_cate',$id)->orderBy('prod_id','desc')->paginate(8);
+        return view('frontend.category',$data);
+    }
+    public function postComment(Request $req,$id){
+        $com = new Comment;
+        $com->com_name= $req->name;
+        $com->com_email = $req->email;
+        $com->com_content = $req->content;
+        $com->com_product = $id;
+        $com->save();
+        return back();
+    }
+    public function getSearch(Request $req){
+       $result= $req->text;
+       $result = str_replace(' ', '%',$result);
+       $data['keyword'] = $result;
+       $data['items'] = Product::where('prod_name','like','%'.$result.'%')->get();
+       return view('frontend.search',$data);
     }
 }

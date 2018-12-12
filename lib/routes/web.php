@@ -13,6 +13,9 @@
 
 Route::get('/', 'FrontEndController@getHome');
 Route::get('detail/{id}/{slug}.html','FrontEndController@getDetail');
+Route::get('category/{id}/{slug}.html','FrontEndController@getCategory');
+Route::post('detail/{id}/{slug}.html','FrontEndController@postComment');
+Route::get('search','FrontEndController@getSearch');
 // 
 Route::group(['prefix'=>'admin'],function(){
 	Route::group(['prefix'=>'login','middleware'=>'CheckLogedIn'],function(){

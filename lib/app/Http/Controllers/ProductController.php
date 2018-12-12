@@ -64,9 +64,9 @@ class ProductController extends Controller
     	// $request->img->storeAs('avatar',$filename);//Lưu hình ảnh vào thư muc lib/storage/app/....
     	if($request->hasFile('img')){
     		$img = $request->img->getClientOriginalName();
-    		if($product->prod_img!=''){
-    			unlink("lib/storage/app/avatar/".$product->prod_img);
-    		}
+    		// if($product->prod_img!=''){
+    		// 	unlink("lib/storage/app/avatar/".$product->prod_img);
+    		// }
     		$product->prod_img= $img;
     		$request->img->storeAs('avatar',$img); 
 
@@ -85,5 +85,6 @@ class ProductController extends Controller
 
     	return redirect('admin/admin/product');
     }
+    
     
 }
