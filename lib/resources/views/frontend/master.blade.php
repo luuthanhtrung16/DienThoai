@@ -53,8 +53,8 @@
 				</div>
 
 				<div id="cart" class="col-md-2 col-sm-12 col-xs-12">
-					<a class="display" href="#">Giỏ hàng</a>
-					<a href="#">6</a>				    
+					<a class="display" href="{{asset('cart/show')}}">Giỏ hàng</a>
+					<a href="{{asset('cart/show')}}">{{Cart::getContent()->count()}}</a>				    
 				</div>
 			</div>			
 		</div>

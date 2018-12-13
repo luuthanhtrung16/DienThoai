@@ -44,3 +44,13 @@ Route::group(['prefix'=>'admin'],function(){
 	});
 });
 //cái middleware => để kiểm tra xem có login chưa mà vô trang index của admin ấ
+
+// Cart
+Route::group(['prefix'=>'cart'],function(){
+	Route::get('add/{id}','CartController@getAdd');
+	Route::get('show','CartController@getShow');
+	Route::get('delete/{id}','CartController@getDelete');
+	Route::get('update','CartController@getUpdate');
+	Route::post('show','CartController@postEmail');
+});
+Route::get('complete','CartController@getComplete');

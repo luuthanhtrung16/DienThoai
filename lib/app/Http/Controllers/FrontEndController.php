@@ -41,4 +41,9 @@ class FrontEndController extends Controller
        $data['items'] = Product::where('prod_name','like','%'.$result.'%')->get();
        return view('frontend.search',$data);
     }
+    // Laravel Shopping Cart
+    //composer require "darryldecode/cart:~4.0"
+    //Darryldecode\Cart\CartServiceProvider::class
+    // 'Cart' => Darryldecode\Cart\Facades\CartFacade::class
+    //php artisan vendor:publish --provider="Darryldecode\Cart\CartServiceProvider" --tag="config"
 }
